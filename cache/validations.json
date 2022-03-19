@@ -1,0 +1,391 @@
+{
+  "version": "3.2",
+  "log": [
+    {
+      "Box": {
+        "src": "contracts\\Box.sol:4",
+        "version": {
+          "withMetadata": "96fda1b88737a3c21a9b292fb32f096d5c6f08679abc2a21c438bce556e6a92a",
+          "withoutMetadata": "bf621dc36e008ecbc6060b3a9ca032b42d7d080b7eac0442d4cad3cf04f5a08a",
+          "linkedWithoutMetadata": "bf621dc36e008ecbc6060b3a9ca032b42d7d080b7eac0442d4cad3cf04f5a08a"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "Scholarship()",
+          "enter()",
+          "getListOfDepositors()",
+          "registerStudent(string storage pointer,uint256,uint256,string storage pointer)",
+          "getListOfStudents()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "Box",
+              "label": "depositer",
+              "type": "t_array(t_struct(Depositer)26_storage)dyn_storage",
+              "src": "contracts\\Box.sol:23"
+            },
+            {
+              "contract": "Box",
+              "label": "students",
+              "type": "t_array(t_struct(Student)21_storage)dyn_storage",
+              "src": "contracts\\Box.sol:24"
+            },
+            {
+              "contract": "Box",
+              "label": "manager",
+              "type": "t_address",
+              "src": "contracts\\Box.sol:26"
+            },
+            {
+              "contract": "Box",
+              "label": "rechargeAddress",
+              "type": "t_array(t_address)dyn_storage",
+              "src": "contracts\\Box.sol:27"
+            },
+            {
+              "contract": "Box",
+              "label": "scholarshipAmout",
+              "type": "t_uint256",
+              "src": "contracts\\Box.sol:28"
+            },
+            {
+              "contract": "Box",
+              "label": "minimumScore",
+              "type": "t_uint256",
+              "src": "contracts\\Box.sol:29"
+            },
+            {
+              "contract": "Box",
+              "label": "amount",
+              "type": "t_uint256",
+              "src": "contracts\\Box.sol:30"
+            }
+          ],
+          "types": {
+            "t_array(t_struct(Depositer)26_storage)dyn_storage": {
+              "label": "struct Box.Depositer storage ref[] storage pointer"
+            },
+            "t_struct(Depositer)26_storage": {
+              "label": "struct Box.Depositer storage pointer",
+              "members": [
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "depositerAddress",
+                  "type": "t_address"
+                }
+              ]
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_array(t_struct(Student)21_storage)dyn_storage": {
+              "label": "struct Box.Student storage ref[] storage pointer"
+            },
+            "t_struct(Student)21_storage": {
+              "label": "struct Box.Student storage pointer",
+              "members": [
+                {
+                  "label": "slNo",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "name",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "rollNo",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "dob",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "score",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "complete",
+                  "type": "t_bool"
+                },
+                {
+                  "label": "StudentAddress",
+                  "type": "t_address"
+                },
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "otp",
+                  "type": "t_uint256"
+                }
+              ]
+            },
+            "t_string_storage": {
+              "label": "string storage pointer"
+            },
+            "t_bool": {
+              "label": "bool"
+            },
+            "t_array(t_address)dyn_storage": {
+              "label": "address[] storage pointer"
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      },
+      "BoxV2": {
+        "src": "contracts\\BoxV2.sol:4",
+        "version": {
+          "withMetadata": "630c040d43e809cad806bf7e5409b6f345c5148cf00830e00c60377ce5c86fd2",
+          "withoutMetadata": "73fed8e91ae684a804a0429008f822acb0e05360347797518ed4635409f6bee0",
+          "linkedWithoutMetadata": "73fed8e91ae684a804a0429008f822acb0e05360347797518ed4635409f6bee0"
+        },
+        "inherit": [],
+        "libraries": [],
+        "methods": [
+          "Scholarship()",
+          "enter()",
+          "getListOfDepositors()",
+          "registerStudent(string storage pointer,uint256,uint256,string storage pointer)",
+          "getListOfStudents()",
+          "registerVendor(string storage pointer,string storage pointer,string storage pointer,uint256)",
+          "issueNewDevice(string storage pointer,uint256,uint256,uint256,uint256,string storage pointer)",
+          "approveVendor(uint256)",
+          "rejectVendor(uint256)",
+          "getListOfVendors()",
+          "getListOfDeviceIssue()"
+        ],
+        "linkReferences": [],
+        "errors": [],
+        "layout": {
+          "storage": [
+            {
+              "contract": "BoxV2",
+              "label": "depositer",
+              "type": "t_array(t_struct(Depositer)174_storage)dyn_storage",
+              "src": "contracts\\BoxV2.sol:23"
+            },
+            {
+              "contract": "BoxV2",
+              "label": "students",
+              "type": "t_array(t_struct(Student)169_storage)dyn_storage",
+              "src": "contracts\\BoxV2.sol:24"
+            },
+            {
+              "contract": "BoxV2",
+              "label": "manager",
+              "type": "t_address",
+              "src": "contracts\\BoxV2.sol:26"
+            },
+            {
+              "contract": "BoxV2",
+              "label": "rechargeAddress",
+              "type": "t_array(t_address)dyn_storage",
+              "src": "contracts\\BoxV2.sol:27"
+            },
+            {
+              "contract": "BoxV2",
+              "label": "scholarshipAmout",
+              "type": "t_uint256",
+              "src": "contracts\\BoxV2.sol:28"
+            },
+            {
+              "contract": "BoxV2",
+              "label": "minimumScore",
+              "type": "t_uint256",
+              "src": "contracts\\BoxV2.sol:29"
+            },
+            {
+              "contract": "BoxV2",
+              "label": "amount",
+              "type": "t_uint256",
+              "src": "contracts\\BoxV2.sol:30"
+            },
+            {
+              "contract": "BoxV2",
+              "label": "vendors",
+              "type": "t_array(t_struct(Vendor)210_storage)dyn_storage",
+              "src": "contracts\\BoxV2.sol:55"
+            },
+            {
+              "contract": "BoxV2",
+              "label": "deviceIssue",
+              "type": "t_array(t_struct(DeviceIssue)225_storage)dyn_storage",
+              "src": "contracts\\BoxV2.sol:56"
+            }
+          ],
+          "types": {
+            "t_array(t_struct(Depositer)174_storage)dyn_storage": {
+              "label": "struct BoxV2.Depositer storage ref[] storage pointer"
+            },
+            "t_struct(Depositer)174_storage": {
+              "label": "struct BoxV2.Depositer storage pointer",
+              "members": [
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "depositerAddress",
+                  "type": "t_address"
+                }
+              ]
+            },
+            "t_uint256": {
+              "label": "uint256"
+            },
+            "t_address": {
+              "label": "address"
+            },
+            "t_array(t_struct(Student)169_storage)dyn_storage": {
+              "label": "struct BoxV2.Student storage ref[] storage pointer"
+            },
+            "t_struct(Student)169_storage": {
+              "label": "struct BoxV2.Student storage pointer",
+              "members": [
+                {
+                  "label": "slNo",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "name",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "rollNo",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "dob",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "score",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "complete",
+                  "type": "t_bool"
+                },
+                {
+                  "label": "StudentAddress",
+                  "type": "t_address"
+                },
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "otp",
+                  "type": "t_uint256"
+                }
+              ]
+            },
+            "t_string_storage": {
+              "label": "string storage pointer"
+            },
+            "t_bool": {
+              "label": "bool"
+            },
+            "t_array(t_address)dyn_storage": {
+              "label": "address[] storage pointer"
+            },
+            "t_array(t_struct(Vendor)210_storage)dyn_storage": {
+              "label": "struct BoxV2.Vendor storage ref[] storage pointer"
+            },
+            "t_struct(Vendor)210_storage": {
+              "label": "struct BoxV2.Vendor storage pointer",
+              "members": [
+                {
+                  "label": "slNo",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "name",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "registrationNo",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "vendorAddress",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "pincode",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "vendorWalletAddress",
+                  "type": "t_address"
+                },
+                {
+                  "label": "status",
+                  "type": "t_bool"
+                },
+                {
+                  "label": "approverAddress",
+                  "type": "t_address"
+                },
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                }
+              ]
+            },
+            "t_array(t_struct(DeviceIssue)225_storage)dyn_storage": {
+              "label": "struct BoxV2.DeviceIssue storage ref[] storage pointer"
+            },
+            "t_struct(DeviceIssue)225_storage": {
+              "label": "struct BoxV2.DeviceIssue storage pointer",
+              "members": [
+                {
+                  "label": "name",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "vendorName",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "vendorIndex",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "rollNo",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "deviceIMEI",
+                  "type": "t_string_storage"
+                },
+                {
+                  "label": "amount",
+                  "type": "t_uint256"
+                },
+                {
+                  "label": "remark",
+                  "type": "t_string_storage"
+                }
+              ]
+            }
+          },
+          "layoutVersion": "1.1"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\Papun$1996\\Desktop\\BlockChain APP\\WEB-3-Scholarship-upgradable\\contracts\\Box.sol": {
+      "lastModificationDate": 1647660427919,
+      "contentHash": "b3bbbc9834aa2b645fc083cf046ced0d",
+      "sourceName": "contracts/Box.sol",
+      "solcConfig": {
+        "version": "0.4.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.4.17"
+      ],
+      "artifacts": [
+        "Box"
+      ]
+    },
+    "C:\\Users\\Papun$1996\\Desktop\\BlockChain APP\\WEB-3-Scholarship-upgradable\\contracts\\BoxV2.sol": {
+      "lastModificationDate": 1647669013511,
+      "contentHash": "cb3ffcbba212b683b510c8ca96eea688",
+      "sourceName": "contracts/BoxV2.sol",
+      "solcConfig": {
+        "version": "0.4.17",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.4.17"
+      ],
+      "artifacts": [
+        "BoxV2"
+      ]
+    }
+  }
+}
