@@ -14,7 +14,7 @@ const useStyles = makeStyles(({ palette, ...theme }) => ({
     borderRadius: 5,
     marginTop: "3rem",
     display: "flex",
-    marginLeft: "33%",
+   // marginLeft: "33%",
   },
 }));
 
@@ -49,7 +49,7 @@ const FormUI = ({ submitForm, start }) => {
         <Grid container>
           <Grid item lg={12} md={12} sm={12} xs={12}>
             <Typography
-              style={{ marginLeft: "15px", marginTop: "10px", padding: 3 }}
+              style={{ marginLeft: "15px", marginTop: "15px", padding: 3 ,color:"#11ce76"}}
               component="h1"
               variant="h5"
             >

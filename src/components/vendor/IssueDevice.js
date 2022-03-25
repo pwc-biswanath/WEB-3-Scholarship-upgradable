@@ -8,9 +8,10 @@ import Paper from "@mui/material/Paper";
 import Table from "react-bootstrap/Table";
 import Title from "../vendor/Title";
 import { Button, Divider, TextField } from "@mui/material";
-import VendorHeader from "./VendorHeader";
 import AssignDevice from "./AssignDevice";
 import { BlockChatinGetData } from "../../ABI-connect/connect";
+import { VendorSidebar } from "../common/VendorSidebar";
+import { Footer } from "../common/Footer";
 
 const theme = createTheme();
 export default function IssueDevice() {
@@ -43,10 +44,10 @@ export default function IssueDevice() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <VendorHeader name={""} />
-      <main>
-        {/* Hero unit */}
+      <VendorSidebar name={""} />
+      
         <Box
           component="main"
           sx={{
@@ -55,7 +56,7 @@ export default function IssueDevice() {
                 ? theme.palette.grey[100]
                 : theme.palette.grey[900],
             flexGrow: 1,
-            height: "90vh",
+            height: "100vh",
             overflow: "auto",
             paddingBottom: 10,
           }}
@@ -73,6 +74,7 @@ export default function IssueDevice() {
                           display: "flex",
                           flexDirection: "column",
                         }}
+                        style={{marginTop:40}}
                       >
                         <Title>Issue Device</Title>
                         <Divider></Divider>
@@ -192,6 +194,7 @@ export default function IssueDevice() {
                       display: "flex",
                       flexDirection: "column",
                     }}
+                    style={{marginTop:40}}
                   >
                     <AssignDevice
                       studentDetails={student[detailsIndex]}
@@ -202,8 +205,11 @@ export default function IssueDevice() {
               </Grid>
             </Grid>
           </Container>
+          <Footer/>
         </Box>
-      </main>
+
+        </Box>
+    
     </ThemeProvider>
   );
 }

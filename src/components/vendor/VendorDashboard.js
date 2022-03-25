@@ -4,10 +4,11 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import VendorHeader from "./VendorHeader";
 import VendorInfo from "./VendorInfo";
 import { DashboardCard } from "../common/DashboadCard";
 import { BlockChatinGetData } from "../../ABI-connect/connect";
+import { VendorSidebar } from "../common/VendorSidebar";
+import { Footer } from "../common/Footer";
 
 const theme = createTheme();
 
@@ -27,10 +28,10 @@ export default function VendorDashboard(props) {
 
   return (
     <ThemeProvider theme={theme}>
+       <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <VendorHeader name="" />
-      <main>
-        {/* Hero unit */}
+      <VendorSidebar name="" />
+  
         <Box
           component="main"
           sx={{
@@ -40,21 +41,21 @@ export default function VendorDashboard(props) {
                 : theme.palette.grey[900],
             flexGrow: 1,
             py: 4,
-            height: "90vh",
+            height: "100vh",
             overflow: "auto",
           }}
         >
-          <Container maxWidth={false}>
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               <Grid item xl={4} lg={4} sm={4} xs={12}>
-                <Container
+                <div
                   maxWidth={false}
                   style={{ marginTop: 30, height: "100%" }}
                 >
                   <center>
                     <VendorInfo vendorData={vendorData} />
                   </center>
-                </Container>
+                </div>
               </Grid>
 
               <Grid item xl={6} lg={6} sm={6} xs={12}>
@@ -79,8 +80,9 @@ export default function VendorDashboard(props) {
               </Grid>
             </Grid>
           </Container>
+          <Footer/>
         </Box>
-      </main>
+      </Box>
     </ThemeProvider>
   );
 }

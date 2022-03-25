@@ -6,8 +6,9 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import IssuedStudentData from "../vendor/IssuedStudentData";
-import VendorHeader from "./VendorHeader";
 import { BlockChatinGetData } from "../../ABI-connect/connect";
+import { VendorSidebar } from "../common/VendorSidebar";
+import { Footer } from "../common/Footer";
 
 const theme = createTheme();
 export default function AllIssuedList() {
@@ -28,9 +29,10 @@ export default function AllIssuedList() {
 
   return (
     <ThemeProvider theme={theme}>
+     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <VendorHeader name={""} />
-      <main>
+      <VendorSidebar name=""/>
+     
         {/* Hero unit */}
         <Box
           component="main"
@@ -40,14 +42,14 @@ export default function AllIssuedList() {
                 ? theme.palette.grey[100]
                 : theme.palette.grey[900],
             flexGrow: 1,
-            height: "90vh",
+            height: "100vh",
             overflow: "auto",
           }}
         >
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+                <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }} style={{marginTop:40}}>
                   <IssuedStudentData
                     title="All Iussed Device List"
                     issueDevice={issueDevice}
@@ -57,8 +59,9 @@ export default function AllIssuedList() {
               </Grid>
             </Grid>
           </Container>
+          <Footer/>
         </Box>
-      </main>
+     </Box>
     </ThemeProvider>
   );
 }

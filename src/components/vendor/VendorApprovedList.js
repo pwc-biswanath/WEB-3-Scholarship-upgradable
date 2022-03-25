@@ -6,8 +6,9 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import VendorData from "./VendorData";
-import AdminHeader from "../admin/AdminHeader";
 import { BlockChatinGetData } from "../../ABI-connect/connect";
+import { AdminSidebar } from "../common/AdminSidebar";
+import { Footer } from "../common/Footer";
 
 const theme = createTheme();
 export default function VendorApprovedList() {
@@ -28,9 +29,10 @@ export default function VendorApprovedList() {
 
   return (
     <ThemeProvider theme={theme}>
+      
+      <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AdminHeader name={""} />
-      <main>
+      <AdminSidebar name={""} />
         {/* Hero unit */}
         <Box
           component="main"
@@ -47,7 +49,7 @@ export default function VendorApprovedList() {
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
             <Grid container spacing={3}>
               <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+                <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }} style={{marginTop:40}}>
                   <VendorData
                     title="Vendor Approve List"
                     vendorData={vendorData}
@@ -58,8 +60,9 @@ export default function VendorApprovedList() {
               </Grid>
             </Grid>
           </Container>
+          <Footer/>
         </Box>
-      </main>
+      </Box>
     </ThemeProvider>
   );
 }

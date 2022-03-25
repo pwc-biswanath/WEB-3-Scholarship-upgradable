@@ -53,11 +53,11 @@ const useStyles = makeStyles({
     backgroundColor: "rgb(0 0 0 / 68%)",
     height: "100%",
     fontFamily: "ui-sans-serif",
+    
   },
   fiCardContentTextSecondary: {
     padding: 10,
-    marginLeft: 20,
-    marginTop: 30,
+    marginTop: "50px",
     color: "rgba(255,255,255,0.78)",
   },
 });
@@ -79,7 +79,7 @@ export const ImageCard = ({ title, image_index }) => {
             className={classes.fiCardContentTextSecondary}
             component="h2"
           >
-            <Button size="small" color="inherit" variant="outlined">
+            <Button size="small" color="inherit" variant="outlined" style={{marginTop:"40px", marginLeft:"15px"}}>
               {title}
             </Button>
           </Typography>

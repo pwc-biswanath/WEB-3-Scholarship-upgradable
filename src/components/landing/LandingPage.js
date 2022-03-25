@@ -1,10 +1,7 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Home from "@mui/icons-material/Home";
 import CssBaseline from "@mui/material/CssBaseline";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { Link } from "react-router-dom";
@@ -12,6 +9,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { ImageCard } from "../common/ImageCard";
 import VendorListModal from "./VendorListModal";
 import StudentListModal from "./StudentListModal";
+import { Footer } from "../common/Footer";
+import Header from "../common/Header"
 
 const theme = createTheme();
 
@@ -36,74 +35,70 @@ export default function LandingPage() {
         />
       )}
       <CssBaseline />
-      <AppBar
-        position="relative"
-        style={{ backgroundColor: "#d25304", color: "#fff" }}
-      >
-        <Toolbar>
-          <Home sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Welcome to E-Scholarship
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <main>
+
+      {/* Add Header Component for responsiveness */}
+      < Header/>
+
+       <main > 
         {/* Hero unit */}
         <Box
           sx={{
             backgroundColor: (theme) =>
-              theme.palette.mode === "light"
+              theme.palette.mode === 'light'
                 ? theme.palette.grey[100]
                 : theme.palette.grey[900],
-            height:"90vh",
+            minHeight: '100vh',
+            minWidth:"100%",
             pt: 8,
-            pb: 6,
+           pb: 6,
           }}
         >
-          <Container maxWidth="sm">
+          <Container maxWidth='lg'>
             <Typography
-              component="h1"
-              variant="h2"
-              align="center"
-              color="text.primary"
+              component='h1'
+              variant='h2'
+              align='center'
+              color='text.primary'
               gutterBottom
+              style={{marginTop:30}}
             >
               E-SCHOLARSHIP
             </Typography>
             <Typography
-              variant="h5"
-              align="center"
-              color="text.secondary"
+              variant='h5'
+              align='center'
+              color='text.secondary'
               paragraph
             >
               Reach benifies directly to beneficiaries
             </Typography>
             <Stack
               sx={{ pt: 4 }}
-              direction="row"
+              direction='row'
               spacing={1}
-              justifyContent="center"
+              justifyContent='center'
             >
-              <div style={{ display: "inline-flex" }}>
-                <Link to="/register" style={{ textDecoration: "none" }}>
-                  <ImageCard title="Student Register" image_index="0" />
+              <div className='gridItems'>
+                <Link to='/register' style={{ textDecoration: 'none' }}>
+                  <ImageCard title='Student Register' image_index='0' />
                 </Link>
-                <Link to="/vendor-register" style={{ textDecoration: "none" }}>
-                  <ImageCard title="Vendor Register" image_index="1" />
+                <Link to='/vendor-register' style={{ textDecoration: 'none' }}>
+                  <ImageCard title='Vendor Register' image_index='1' />
                 </Link>
                 <div onClick={() => setOpenVendorModal(true)}>
-                  <ImageCard title="Vendor Dashboard" image_index="2" />
+                  <ImageCard title='Vendor Dashboard' image_index='2' />
                 </div>
 
-                <Link to="/admin-dashboard" style={{ textDecoration: "none" }}>
-                  <ImageCard title="Admin Dashboard" image_index="3" />
+                <Link to='/admin-dashboard' style={{ textDecoration: 'none' }}>
+                  <ImageCard title='Admin Dashboard' image_index='3' />
                 </Link>
                 <div onClick={() => setOpenStudentModal(true)}>
-                  <ImageCard title="Student Dashboard" image_index="4" />
+                  <ImageCard title='Student Dashboard' image_index='4' />
                 </div>
               </div>
             </Stack>
           </Container>
+          <Footer/>
         </Box>
       </main>
     </ThemeProvider>

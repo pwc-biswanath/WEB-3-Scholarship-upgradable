@@ -15,6 +15,8 @@ import StudentHeader from "./StudentHeader";
 import IssuedStudentData from "../vendor/IssuedStudentData";
 import LinearProgress from "@mui/material/LinearProgress";
 import { BlockChatinGetData } from "../../ABI-connect/connect";
+import { StudentSidebar } from "../common/StudentSidebar";
+import { Footer } from "../common/Footer";
 
 const theme = createTheme();
 export default function StudentDetails() {
@@ -46,82 +48,83 @@ export default function StudentDetails() {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <StudentHeader name={""} />
-      {start && <LinearProgress color="secondary" />}
-      <main>
-        {/* Hero unit */}
-        <Box
-          component="main"
-          sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === "light"
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
-            flexGrow: 1,
-            height: "100vh",
-            overflow: "auto",
-          }}
-        >
-          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
-            <Grid container spacing={3}>
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-                  <Title>Student Details</Title>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <StudentSidebar name=""/>
+        {start && <LinearProgress color="secondary" />}
+        
+          <Box
+            component="main"
+            sx={{
+              backgroundColor: (theme) =>
+                theme.palette.mode === "light"
+                  ? theme.palette.grey[100]
+                  : theme.palette.grey[900],
+              flexGrow: 1,
+              height: "100vh",
+              overflow: "auto",
+            }}
+          >
+            <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+              <Grid container spacing={3}>
+                <Grid item xs={12}>
+                  <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }} style={{marginTop:40}}>
+                    <Title>Student Details</Title>
 
-                  <Divider sx={{ my: 1 }} />
-                  <Table size="small">
-                    <TableBody>
-                      <TableRow>
-                        <TableCell>Name:</TableCell>
-                        <TableCell>{studentData?.name}</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>Date Of birth:</TableCell>
-                        <TableCell>{studentData?.dob}</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>Roll no:</TableCell>
-                        <TableCell>{studentData?.rollNo}</TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>Available balance:</TableCell>
-                        <TableCell>
-                          {parseFloat(
-                            studentData?.amount / 1000000000000000000
-                          ).toFixed(3)}{" "}
-                          ETH
-                        </TableCell>
-                      </TableRow>
-                      <TableRow>
-                        <TableCell>
-                          OTP{" "}
-                          <small style={{ color: "red" }}>
-                            [ Do not shere with anyone ]
-                          </small>
-                          :
-                        </TableCell>
-                        <TableCell>{studentData?.otp}</TableCell>
-                      </TableRow>
-                    </TableBody>
-                  </Table>
-                </Paper>
+                    <Divider sx={{ my: 1 }} />
+                    <Table size="small">
+                      <TableBody>
+                        <TableRow>
+                          <TableCell>Name:</TableCell>
+                          <TableCell>{studentData?.name}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>Date Of birth:</TableCell>
+                          <TableCell>{studentData?.dob}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>Roll no:</TableCell>
+                          <TableCell>{studentData?.rollNo}</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>Available balance:</TableCell>
+                          <TableCell>
+                            {parseFloat(
+                              studentData?.amount / 1000000000000000000
+                            ).toFixed(3)}{" "}
+                            ETH
+                          </TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>
+                            OTP{" "}
+                            <small style={{ color: "red" }}>
+                              [ Do not shere with anyone ]
+                            </small>
+                            :
+                          </TableCell>
+                          <TableCell>{studentData?.otp}</TableCell>
+                        </TableRow>
+                      </TableBody>
+                    </Table>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12}>
+                  <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+                    <IssuedStudentData
+                      title="Iussed Device List"
+                      issueDevice={issueDevice?.filter(
+                        (data) => data.studentIndex === id
+                      )}
+                      back_url=""
+                    />
+                  </Paper>
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-                  <IssuedStudentData
-                    title="Iussed Device List"
-                    issueDevice={issueDevice?.filter(
-                      (data) => data.studentIndex === id
-                    )}
-                    back_url=""
-                  />
-                </Paper>
-              </Grid>
-            </Grid>
-          </Container>
-        </Box>
-      </main>
+            </Container>
+            <Footer/>
+          </Box>
+      </Box>
     </ThemeProvider>
   );
 }

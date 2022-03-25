@@ -20,7 +20,7 @@ export default function IssuedStudentData({ title, issueDevice, start }) {
       <Table
         striped
         hover
-        style={{ backgroundColor: "rgb(245 245 245)", color: "black" }}
+        style={{ backgroundColor: "rgb(245 245 245)", color: "black",overflowY: "auto" }}
       >
         <thead style={{ backgroundColor: "#e08912", color: "#fff" }}>
           <tr>

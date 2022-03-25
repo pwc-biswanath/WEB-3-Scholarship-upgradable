@@ -14,6 +14,9 @@ const TransctionList = ({ depositors }) => {
         </tr>
       </thead>
       <tbody style={{ backgroundColor: "rgb(245 245 245)", color: "black" }}>
+
+      
+
         {depositors &&
           depositors.map((data, index) => {
             const { depositerAddress, amount } = data;

@@ -25,7 +25,6 @@ const useStyles = makeStyles({
     maxWidth: 345,
     minWidth: 250,
     height: 150,
-    marginLeft: 15,
   },
 
   /**

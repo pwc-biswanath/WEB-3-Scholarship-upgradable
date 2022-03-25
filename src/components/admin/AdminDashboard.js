@@ -4,12 +4,13 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import AdminHeader from "./AdminHeader";
 import { DashboardCard } from "../common/DashboadCard";
 import {
   GetContractBalance,
   BlockChatinGetData,
 } from "../../ABI-connect/connect";
+import { AdminSidebar } from "../common/AdminSidebar";
+import { Footer } from "../common/Footer";
 
 const theme = createTheme();
 
@@ -37,9 +38,11 @@ export default function AdminDashboard() {
 
   return (
     <ThemeProvider theme={theme}>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AdminHeader />
-      <main>
+     {/*  <AdminHeader /> */}
+     <AdminSidebar name=""/>
+    
         {/* Hero unit */}
         <Box
           component="main"
@@ -50,12 +53,12 @@ export default function AdminDashboard() {
                 : theme.palette.grey[900],
             flexGrow: 1,
             py: 4,
-            height: "90vh",
+            height: "100vh",
             overflow: "auto",
           }}
         >
-          <Container maxWidth={false}>
-            <Grid container spacing={3}>
+           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+           <Grid container spacing={2}>
               <Grid item xl={3} lg={3} sm={6} xs={12}>
                 <DashboardCard
                   title="Total Student"
@@ -90,9 +93,10 @@ export default function AdminDashboard() {
                 />
               </Grid>
             </Grid>
-          </Container>
+            </Container>
+          <Footer/>
         </Box>
-      </main>
+     </Box>
     </ThemeProvider>
   );
 }

@@ -1,13 +1,17 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
 import { Avatar, ListItemAvatar } from "@mui/material";
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+
 import { BlockChatinGetData } from "../../ABI-connect/connect";
 
 const style = {
@@ -27,6 +31,8 @@ export default function BasicModal({ openVendorModal, closeVendorModal }) {
   const [vendorData, setVendorData] = React.useState([]);
   let history = useNavigate();
   const handleClose = () => closeVendorModal(false);
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
   React.useEffect(() => {
     fetchVendorData();
@@ -47,17 +53,19 @@ export default function BasicModal({ openVendorModal, closeVendorModal }) {
   };
 
   return (
-    <div>
-      <Modal
+    <>
+      
+      <Dialog
+        fullScreen={fullScreen}
         open={openVendorModal}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        aria-labelledby="responsive-dialog-title"
       >
-        <Box sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
+        <DialogTitle id="responsive-dialog-title">
             Select Vendor
-          </Typography>
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
           {vendorData.length > 0
             ? vendorData.map((data) => {
                 return (
@@ -76,8 +84,11 @@ export default function BasicModal({ openVendorModal, closeVendorModal }) {
                 );
               })
             : "Please wait..."}
-        </Box>
-      </Modal>
-    </div>
+        
+          </DialogContentText>
+        </DialogContent>
+        
+      </Dialog>
+    </>
   );
 }

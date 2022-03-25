@@ -1,13 +1,16 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { useNavigate } from "react-router-dom";
 import { Avatar, ListItemAvatar } from "@mui/material";
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 import { BlockChatinGetData } from "../../ABI-connect/connect";
 
 const style = {
@@ -28,6 +31,9 @@ export default function BasicModal({ openStudentModal, closeStudentModal }) {
   let history = useNavigate();
   const handleClose = () => closeStudentModal(false);
 
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
+
   React.useEffect(() => {
     fetchVendorData();
   }, []);
@@ -47,7 +53,42 @@ export default function BasicModal({ openStudentModal, closeStudentModal }) {
 
   return (
     <div>
-      <Modal
+
+<Dialog
+        fullScreen={fullScreen}
+        open={openStudentModal}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+      >
+        <DialogTitle id="responsive-dialog-title">
+            Select Student
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+          {vendorData.length > 0
+            ? vendorData.map((data) => {
+                return (
+                  <List>
+                    <ListItem disablePadding>
+                      <ListItemButton onClick={() => login(data?.slNo)}>
+                        <ListItemAvatar>
+                          <Avatar
+                            style={{ backgroundColor: "#e78d13" }}
+                          ></Avatar>
+                        </ListItemAvatar>
+                        <ListItemText primary={data?.name} />
+                      </ListItemButton>
+                    </ListItem>
+                  </List>
+                );
+              })
+            : "Please wait..."}
+        
+          </DialogContentText>
+        </DialogContent>
+        
+      </Dialog>
+      {/* <Modal
         open={openStudentModal}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
@@ -76,7 +117,7 @@ export default function BasicModal({ openStudentModal, closeStudentModal }) {
               })
             : "Please wait..."}
         </Box>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }

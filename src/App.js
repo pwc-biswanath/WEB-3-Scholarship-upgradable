@@ -53,18 +53,7 @@ const App = () => {
         <Route path="/all-transaction" element={<AllTransaction />} />
       </Routes>
       <div></div>
-      <div
-        maxWidth="sm"
-        style={{
-          backgroundColor: "#8080807a",
-          padding: 10,
-          bottom: 0,
-          position: "fixed",
-          width: "100%",
-        }}
-      >
-        <img src="/assets/images/pwc_logo.png" height="35px"></img>
-      </div>
+      
     </AccountContest.Provider>
   );
 };

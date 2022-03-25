@@ -5,10 +5,12 @@ import Col from "react-bootstrap/Col";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import AdminHeader from "./AdminHeader";
 import TransctionList from "../TransctionList";
 import { BlockChatinGetData } from "../../ABI-connect/connect";
 import LinearProgress from "@mui/material/LinearProgress";
+import { AdminSidebar } from "../common/AdminSidebar";
+import { Footer } from "../common/Footer";
+import { Grid } from "@mui/material";
 const theme = createTheme();
 
 export default function AllTransaction() {
@@ -28,11 +30,11 @@ export default function AllTransaction() {
   }, []);
   return (
     <ThemeProvider theme={theme}>
+      <Box sx={{ display: 'flex' }}>
       {start && <LinearProgress color="secondary" />}
       <CssBaseline />
-      <AdminHeader />
-      <main>
-        {/* Hero unit */}
+      <AdminSidebar name=""/>
+      
         <Box
           component="main"
           sx={{
@@ -42,21 +44,28 @@ export default function AllTransaction() {
                 : theme.palette.grey[900],
             flexGrow: 1,
             py: 4,
-            height: "90vh",
+            height: "100vh",
             overflow: "auto",
           }}
         >
-          <Container maxWidth={false}>
-            <Row style={{ marginTop: 30 }}>
-              <Col>
-                <h3>All Transctions </h3>
-                <p>List Of Amount Deposit</p>
-                <TransctionList depositors={depositors} />
-              </Col>
-            </Row>
+        <Container  maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+          <Grid container spacing={2}>
+             <Grid item xl={12} lg={12} sm={12} xs={12}>
+                <Row style={{ marginTop: 30 }}>
+                  <Col>
+                    <h3>All Transctions </h3>
+                    <p>List Of Amount Deposit</p>
+                    <TransctionList depositors={depositors} />
+                  </Col>
+                </Row>
+
+              </Grid>
+
+          </Grid>
           </Container>
+          <Footer/>
         </Box>
-      </main>
+      </Box>
     </ThemeProvider>
   );
 }

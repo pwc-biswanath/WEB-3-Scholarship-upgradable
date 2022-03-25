@@ -3,17 +3,18 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import AdminHeader from "./AdminHeader";
 import StartScholarship from "../StartScholarship";
+import { AdminSidebar } from "../common/AdminSidebar";
+import { Grid } from "@mui/material";
+import { Footer } from "../common/Footer";
 const theme = createTheme();
 
 export default function AdminWallet() {
   return (
     <ThemeProvider theme={theme}>
+      <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AdminHeader />
-      <main>
-        {/* Hero unit */}
+      <AdminSidebar name="" />
         <Box
           component="main"
           sx={{
@@ -23,15 +24,20 @@ export default function AdminWallet() {
                 : theme.palette.grey[900],
             flexGrow: 1,
             py: 4,
-            height: "90vh",
+            height: "100vh",
             overflow: "auto",
           }}
         >
-          <Container maxWidth={false}>
-            <StartScholarship />
+          <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+           <Grid container spacing={2}>
+              <Grid item xl={12} lg={12} sm={12} xs={12}>
+                <StartScholarship />
+              </Grid>
+            </Grid>
           </Container>
+          <Footer/>
         </Box>
-      </main>
+      </Box>
     </ThemeProvider>
   );
 }
